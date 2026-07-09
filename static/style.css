@@ -1,0 +1,22 @@
+:root {
+  /* Definición de variables para consistencia */
+  --bg-color: #121212;      /* Gris oscuro profundo, no negro puro */
+  --text-primary: #e0e0e0;  /* Texto claro suavizado */
+  --accent-purple: #800080; /* Morado para elementos clave */
+  --accent-hover: #4B0082;  /* Indigo para estados de interacción */
+  --font-main: 'Inter', system-ui, sans-serif; /* Tipografía limpia */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}

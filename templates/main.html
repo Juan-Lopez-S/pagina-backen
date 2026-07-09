@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>main</title>
+</head>
+<body>
+    <h1>tablero principal de la app</h1>
+    <h3>Bienvenido {{nom}}</h3>
+    <a href="/logout">Cerrar sesion</a>
+    <br><br>
+    <a href="https://media.tenor.com/IjIXFxklw40AAAAe/meme-shitpost.png">imagen ramdom</a>
+    <br><br>
+    <a href="https://i.ytimg.com/vi/1kVE-7kNroY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCfnU-7IQXY2TlVGuMCbS_NvEuhFA">bendicion</a>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

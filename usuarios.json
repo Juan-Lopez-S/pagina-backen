@@ -1,0 +1,7 @@
+[
+    {
+        "nombre": "juan",
+        "usuario": "lopez",
+        "contrasena": "scrypt:32768:8:1$iMUvgL4gHVnvt4jS$c3a9335c341b1cabce07ba4063cfadcda788b293044be83521b00d00de7517bcb40f05e25d4ddbe316567a467d5f5d4f76371a05f23838084b4a31912ae85438"
+    }
+]
