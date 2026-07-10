@@ -22,11 +22,11 @@ def main():
     else:
         return render_template("index.html", msg="no has iniciado sesion")
 
-
+"""
 @app.route("/registro")
 def pagina_registro():
     return render_template("registro.html")
-
+"""
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -52,17 +52,31 @@ def login():
 @app.route("/registro", methods=["GET", "POST"])
 def registro():
     if request.method == "POST":
-        nombre = request.form.get("nombre")
-        usuario = request.form.get("usuario")
-        nueva_contrasena = request.form.get("contrasena")
+        nombre = request.form.get("nombre", "").strip()
+        usuario = request.form.get("usuario", "").strip()
+        nueva_contrasena = request.form.get("contrasena", "")
 
-        contrasena_encrip = generate_password_hash(nueva_contrasena)
+        if len(nombre) < 3:
+            return render_template("registro.html", error="deben ser al menos 3 letras!")
+        
+        if len(usuario) < 4:
+            return render_template("registro.html", error="deben ser al menos 4 caracteres!")
+        
+        if len(nueva_contrasena) < 6:
+            return render_template("registro.html", error="la contraseña debe tener al menos 6 caracteres!")
+
 
         try:
             with open(RUTA_USUARIOS, "r", encoding="utf-8") as archivo:
                 listado = json.load(archivo)
         except:
             listado = []
+
+        for u in listado:
+            if u["usuario"] == usuario:
+                return render_template("registro.html", error="el nombre de usuario no esta disponible!")
+
+        contrasena_encrip = generate_password_hash(nueva_contrasena)
 
         nuevo_usuario = {
             "nombre": nombre,

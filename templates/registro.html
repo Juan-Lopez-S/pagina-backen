@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Document</title>
+    <title>Registro</title>
 </head>
 <body>
-    <form action="/registro" method="post">
-        <label>Nombre:</label>
-        <input type="text" name="nombre" required>
+    <div class="login-container">
+        <form action="/registro" method="post">
+            <h2>Crear cuenta</h2>
 
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" minlength="3" required placeholder="Minimo 3 letras">
 
-        <label>Contraseña:</label>
-        <input type="password" name="contrasena" required>
+            <label for="usuario">Usuario:</label>
+            <input type="text" name="usuario" minlength="4" required placeholder="minimo 4 caracteres">
 
-        <button type="submit">Registrarse</button>
-    </form>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" name="contrasena" minlength="6" required placeholder="minimo 6 caracteres">
+
+            <button type="submit">Registrarse</button>
+
+            <a href="/">Volver al inicio</a>
+        </form>
+        {% if error %}
+            <h3 style="color: #ff6b6b; text-align: center; margin-top: 15px;">{{ error }}</h3>
+        {% endif %}
+
+    </div>
 </body>
 </html>
