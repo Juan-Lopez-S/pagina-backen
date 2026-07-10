@@ -7,21 +7,23 @@
     <title>Bienvenida al sistema</title>
 </head>
 <body>
-    <h1>Bienvenido a mi primer web</h1>
-    <p class="intro">A continuacion debes ingresar al sistema</p>
+    <div class="login-container">
+        <h1>Bienvenido a mi primer web</h1>
+        
+        <form action="/login" method="post">
+            <p class="intro">A continuacion debes ingresar al sistema</p>
+            <label for="usuario">Usuario: </label>
+            <input type="text" name="usuario" required>
 
-    <form action="/login" method="post">
-        <label for="usuario">Usuario: </label>
-        <input type="text" name="usuario" required>
+            <label for="contrasena">Contraseña: </label>
+            <input type="password" name="contrasena" required>
 
-        <label for="contrasena">Contraseña: </label>
-        <input type="password" name="contrasena" required>
-
-        <button type="submit">Ingresar</button>
-        <a href="/registro">Sin usuario? presione aqui para registrarse</a>
-    </form>
-    
-    <h3>{{msg}}</h3>
+            <button type="submit">Ingresar</button>
+            <a href="/registro">Crear cuenta</a>
+        </form>
+        
+        <h3>{{msg}}</h3>
+    </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

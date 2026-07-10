@@ -1,22 +1,59 @@
-:root {
-  /* Definición de variables para consistencia */
-  --bg-color: #121212;      /* Gris oscuro profundo, no negro puro */
-  --text-primary: #e0e0e0;  /* Texto claro suavizado */
-  --accent-purple: #800080; /* Morado para elementos clave */
-  --accent-hover: #4B0082;  /* Indigo para estados de interacción */
-  --font-main: 'Inter', system-ui, sans-serif; /* Tipografía limpia */
+body {
+  background-color: #000000;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
 }
 
-body {
-  background-color: var(--bg-color);
-  color: var(--text-primary);
-  font-family: var(--font-main);
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
+form {
+  background-color: #6d5190;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  gap: 10px;
+
+  max-width: 400px;
+}
+
+
+input[type="text"], input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 12px;
+
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  background-color: #9c73cf;
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  padding-inline: 40px;
+  border-radius: 20px;
+}
+
+button:hover {background-color: rgb(119, 72, 134);}
+
+a {
+  text-decoration: none;
+  color: #e0d0f0;
 }

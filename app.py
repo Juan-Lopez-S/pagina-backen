@@ -49,31 +49,33 @@ def login():
     return render_template("index.html", msg="datos incorrectos")
 
 
-@app.route("/registrar", methods=["POST"])
-def registrar():
-    nombre = request.form.get("nombre")
-    usuario = request.form.get("usuario")
-    nueva_contrasena = request.form.get("contrasena")
+@app.route("/registro", methods=["GET", "POST"])
+def registro():
+    if request.method == "POST":
+        nombre = request.form.get("nombre")
+        usuario = request.form.get("usuario")
+        nueva_contrasena = request.form.get("contrasena")
 
-    contrasena_encrip = generate_password_hash(nueva_contrasena)
+        contrasena_encrip = generate_password_hash(nueva_contrasena)
 
-    try:
-        with open(RUTA_USUARIOS, "r", encoding="utf-8") as archivo:
-            listado = json.load(archivo)
-    except:
-        listado = []
+        try:
+            with open(RUTA_USUARIOS, "r", encoding="utf-8") as archivo:
+                listado = json.load(archivo)
+        except:
+            listado = []
 
-    nuevo_usuario = {
-        "nombre": nombre,
-        "usuario": usuario,
-        "contrasena": contrasena_encrip
-    }
-    listado.append(nuevo_usuario)
+        nuevo_usuario = {
+            "nombre": nombre,
+            "usuario": usuario,
+            "contrasena": contrasena_encrip
+        }
+        listado.append(nuevo_usuario)
 
-    with open(RUTA_USUARIOS, "w", encoding="utf-8") as archivo:
-        json.dump(listado, archivo, indent=4)
-    
-    return render_template("index.html", msg="registro exitoso")
+        with open(RUTA_USUARIOS, "w", encoding="utf-8") as archivo:
+            json.dump(listado, archivo, indent=4)
+        
+        return render_template("index.html", msg="registro exitoso")
+    return render_template("registro.html")
 
 
 @app.route("/logout")
